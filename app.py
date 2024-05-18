@@ -136,6 +136,7 @@ def plot_margins(income_statement):
 
 
 # Streamlit app
+# Streamlit app
 st.title("Financial Dashboard")
 
 # Sidebar for API key input (no longer needed for yfinance)
@@ -212,6 +213,8 @@ with tab1:
     except Exception as e:
         st.error(f"Error fetching market data: {e}")
 
+#
+#
 # Tab 2: Company Analysis
 with tab2:
     st.header("Company Analysis")
@@ -222,6 +225,7 @@ with tab2:
             overview, income_statement = get_fundamental_data(ticker)
 
             if overview and not income_statement.empty:
+                st.divider()
                 #
                 col1, col2, col3 = st.columns(3)
                 with col1:
@@ -232,7 +236,6 @@ with tab2:
                     display_market_data(ticker, ticker)
 
                 #
-                st.divider()
                 st.subheader("Fundamental Data")
                 show_stock_info(ticker)
                 #
