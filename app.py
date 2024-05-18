@@ -111,7 +111,7 @@ def plot_margins_(income_statement):
     fig = px.bar(df_plot, x='index', y=['Gross Margin', 'Profit Margin'],
                  title="Gross Margin and Profit Margin",
                  labels={'index': 'Fiscal Year', 'value': 'Margin'},
-                 barmode='group')
+                 )
 
     # Show the figure
     fig.show()
@@ -257,7 +257,9 @@ with tab2:
                 st.table(income_statement)
                 #
                 st.subheader("Margins")
+                fig_ = plot_margins_(income_statement)
                 fig = plot_margins(income_statement)
+                st.plotly_chart(fig_)
                 st.pyplot(fig)
 
         except Exception as e:
